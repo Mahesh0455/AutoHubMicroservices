@@ -62,7 +62,7 @@ public class UserController {
 	
 	
 	@PatchMapping("/update")
-	public ResponseEntity<UpdateUserResponseModel> loginUser(@RequestBody UpdateUserRequestModel user) {
+	public ResponseEntity<UpdateUserResponseModel> updateUser(@RequestBody UpdateUserRequestModel user) {
 		UpdateUserResponseModel returnValue = userService.updateUser(user);
 		if (returnValue != null) {
 			return ResponseEntity.status(HttpStatus.OK).body(returnValue);

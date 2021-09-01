@@ -17,17 +17,17 @@ public class CustomerRequestEntity {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int requestId;
-	private String vehicleCategory;
+		private int requestId;
+		private String vehicleCategory;
+		
+		private String vehicleNumber;
+		private String vehicleName;
+		private String vehicleBrand;
+		private String problemDescription;
 	
-	private String vehicleNumber;
-	private String vehicleName;
-	private String vehicleBrand;
-	private String problemDescription;
-
-	private String status;
-	private String enquiryDate;	
-	private double cost;
+		private String status;
+		private String enquiryDate;	
+		private double cost;
 	
 	@ManyToOne(cascade = CascadeType.ALL )
 	 @JoinColumn(name ="user_ID")
