@@ -17,7 +17,6 @@ public class CustomerRequestEntity {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	
 	private int requestId;
 	private String vehicleCategory;
 	
@@ -30,7 +29,7 @@ public class CustomerRequestEntity {
 	private String enquiryDate;	
 	private double cost;
 	
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne(cascade = CascadeType.ALL )
 	 @JoinColumn(name ="user_ID")
 	private UserEntity userEntity;
 

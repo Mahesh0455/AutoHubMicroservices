@@ -94,10 +94,8 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public List<UserEntity> getAllCustomers() {
-		List<UserEntity> userList=userRepository.findAll();
-		
-		
-		
+		List<UserEntity> userList=userRepository.findByRole("customer");
+	
 		return userList;
 	}
 
@@ -107,6 +105,7 @@ public class UserServiceImpl implements UserService {
 		return user;
 	}
 
+	
 	
 	
 	

@@ -3,9 +3,7 @@ package com.auto.models;
 
 
 public class MakeRequestRequestModel {
-	
-	
-	
+
 	private String vehicleCategory;
 	private String vehicleNumber;
 	private String vehicleName;

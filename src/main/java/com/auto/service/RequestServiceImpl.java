@@ -28,8 +28,8 @@ public class RequestServiceImpl implements RequestService {
 	public MakeRequestResponseModel addRequest(MakeRequestRequestModel request) {
 		
 		MakeRequestResponseModel responseModel=new ModelMapper().map(request, MakeRequestResponseModel.class);
-		
-		CustomerRequestEntity requestEntity=new ModelMapper().map(request, CustomerRequestEntity.class);
+		CustomerRequestEntity requestEntity=new CustomerRequestEntity();
+		 requestEntity=new ModelMapper().map(request, CustomerRequestEntity.class);
 		UserEntity user = userDao.getById(request.getUserId());
 		requestEntity.setUserEntity(user);
 		requestEntity.setStatus("pending");
@@ -78,6 +78,26 @@ public class RequestServiceImpl implements RequestService {
 		return "Cost Updated Successfully";
 	}
 
+	@Override
+	public String deleteRequest(int requestId) {
+		
+		CustomerRequestEntity request=requestDao.getById(requestId);
+		request.setUserEntity(null);
+		requestDao.delete(request);
+		
+		return "Request Deleted Successfully";
+	}
+
+	@Override
+	public List<CustomerRequestEntity> getPendingRequest(String status) {
+		
+		List<CustomerRequestEntity> list=requestDao.findByStatus(status);
+		return list;
+	}
+
+	
+	
+	
 	
 	
 		

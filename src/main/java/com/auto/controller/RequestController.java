@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.auto.entities.CustomerRequestEntity;
 import com.auto.models.MakeRequestRequestModel;
 import com.auto.models.MakeRequestResponseModel;
 import com.auto.models.UpdateStatusRequestModel;
@@ -60,10 +62,18 @@ public class RequestController {
 		
 	}
 	
-	public String deleteRequest(@RequestParam int requestId ) {
+	@DeleteMapping("/deleteRequest")
+	public String deleteRequest(@RequestHeader int requestId ) {
+		String returnValue=requestService.deleteRequest(requestId);
 		
+		return returnValue;
+	}
+	
+	@PostMapping("/getpendingRequests")
+	public List<CustomerRequestEntity> getPendingRequest(){
+		List<CustomerRequestEntity> requests=requestService.getPendingRequest("pending");
 		
-		return null;
+		return requests;
 	}
 	
 

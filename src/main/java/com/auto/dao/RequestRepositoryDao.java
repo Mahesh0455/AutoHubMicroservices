@@ -10,4 +10,7 @@ import com.auto.entities.UserEntity;
 public interface RequestRepositoryDao  extends JpaRepository<CustomerRequestEntity, Integer> {
 	
 	List<CustomerRequestEntity> findByUserEntity(UserEntity userEntity);
+	List<CustomerRequestEntity> findByStatus(String status);
+	
+	
 }

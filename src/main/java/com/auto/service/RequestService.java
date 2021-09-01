@@ -4,6 +4,7 @@ package com.auto.service;
 
 import java.util.List;
 
+import com.auto.entities.CustomerRequestEntity;
 import com.auto.models.MakeRequestRequestModel;
 import com.auto.models.MakeRequestResponseModel;
 import com.auto.models.UpdateStatusRequestModel;
@@ -18,5 +19,9 @@ public interface RequestService {
 	public String updateStatusOfRequest(UpdateStatusRequestModel statusModel);
 	
 	public String updateCostStatus(updateCostRequestModel costModel);
+	
+	public String deleteRequest(int requestId);
+	
+	public List<CustomerRequestEntity> getPendingRequest(String status);
 			
 }
