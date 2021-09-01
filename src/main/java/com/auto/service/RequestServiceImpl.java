@@ -95,6 +95,14 @@ public class RequestServiceImpl implements RequestService {
 		return list;
 	}
 
+	@Override
+	public List<CustomerRequestEntity> getApprovedRequest(String status) {
+		
+		List<CustomerRequestEntity> list=requestDao.findByStatus(status);
+		return list;
+	}
+
+	
 	
 	
 	

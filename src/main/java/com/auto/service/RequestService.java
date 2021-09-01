@@ -23,5 +23,7 @@ public interface RequestService {
 	public String deleteRequest(int requestId);
 	
 	public List<CustomerRequestEntity> getPendingRequest(String status);
+	
+	public List<CustomerRequestEntity> getApprovedRequest(String status);
 			
 }

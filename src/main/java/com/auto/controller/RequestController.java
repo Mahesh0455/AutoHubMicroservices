@@ -76,5 +76,12 @@ public class RequestController {
 		return requests;
 	}
 	
+	@PostMapping("/getApprovedRequests")
+	public List<CustomerRequestEntity> getApprovedRequests(){
+		List<CustomerRequestEntity> requests=requestService.getApprovedRequest("Approved");
+		
+		return requests;
+		
+	}
 
 }
